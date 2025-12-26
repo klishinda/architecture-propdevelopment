@@ -1,0 +1,23 @@
+@startuml
+title PropDevelopment Context Diagram
+top to bottom direction
+
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+
+Person(user, "Клиенты", "КЛиенты, собственники")
+Person(employee, "Сотрудники", "Аналитики, разработчики, бухгалтеры и т.д.")
+System(app, "PropDevelopment софт", "Основной софт девелопера")
+System_Ext(sensor, "Датчики")
+System_Ext(partner, "Партнёр", "Умные домофон и шлагбаум")
+System_Ext(communal, "ЖКХ")
+System_Ext(smev, "Госорганы")
+System_Ext(ps, "Платежные системы")
+
+Rel(user, app, "Просматривает значения датчиков, управляет датчиками")
+Rel(employee, app, "Работа с сервисом")
+Rel(sensor, partner, "Обработка данных")
+Rel(partner, app, "Передача инфо")
+Rel(app, communal, "Услуги")
+Rel(app, smev, "Оповещение госорганов")
+Rel(app, ps, "Оплата")
+@enduml
