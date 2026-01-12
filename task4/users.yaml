@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: support-user
+  namespace: default
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dev-user
+  namespace: default
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sre-user
+  namespace: default
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: security-user
+  namespace: default

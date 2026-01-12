@@ -1,0 +1,55 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: viewer-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: support-user
+  namespace: default
+roleRef:
+  kind: Role
+  name: viewer
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: editor-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: dev-user
+  namespace: default
+roleRef:
+  kind: Role
+  name: editor
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: secrets-viewer-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: sre-user
+  namespace: default
+roleRef:
+  kind: Role
+  name: secrets-viewer
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: secrets-editor-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: security-user
+  namespace: default
+roleRef:
+  kind: Role
+  name: secrets-editor
+  apiGroup: rbac.authorization.k8s.io
